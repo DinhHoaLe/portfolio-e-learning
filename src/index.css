@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+.button_primary {
+    background-color: #6d28d1;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    height: 40px;
+}
+
+.button_primary:hover {
+    background-color: #5b21b6;
+}
+
+.button_primary_noFill {
+    background-color: white;
+    color: #6d28d1;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #6d28d1;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    height: 40px;
+}
+
+.button_primary_noFill:hover {
+    background-color: #f3e8ff;
+}
+
+.button_text_primary {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    height: 40px;
+}
+
+.button_text_primary:hover {
+    background-color: #f3e8ff;
+    color: #6d28d1;
+    border-radius: 0.25rem;
+}
+
+.button_text_purple {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    height: 40px;
+    color: #6d28d1;
+    font-weight: bold;
+}
+
+.button_text_purple:hover {
+    background-color: #f3e8ff;
+    color: #6d28d1;
+    border-radius: 0.25rem;
+}
