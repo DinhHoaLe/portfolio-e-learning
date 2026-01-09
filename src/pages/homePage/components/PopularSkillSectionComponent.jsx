@@ -5,6 +5,7 @@ import {
   ArrowRightOutlined,
   LeftOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const courses = [
   {
@@ -83,6 +84,7 @@ const courses = [
 
 const PopularSkillSectionComponent = () => {
   const carouselRef = useRef(null);
+  const navigate = useNavigate();
 
   const settings = {
     dots: false,
@@ -146,7 +148,10 @@ const PopularSkillSectionComponent = () => {
             See ChatGPT courses <RightOutlined className="text-[10px]" />
           </button>
           <p className="text-xs text-gray-500 mb-6">6,379,270 learners</p>
-          <button className="button_primary_noFill">
+          <button
+            className="button_primary_noFill"
+            onClick={() => navigate("featured-topics")}
+          >
             Show all trending skills
           </button>
         </div>
@@ -205,6 +210,7 @@ const PopularSkillSectionComponent = () => {
                       type="primary"
                       size="large"
                       className="button_primary"
+                      onClick={() => navigate("case-study")}
                     >
                       Read full story <ArrowRightOutlined />
                     </button>

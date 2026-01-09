@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { use, useRef } from "react";
 import { Card, Carousel, Button } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const SectionComponent = () => {
   const carouselRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <div className="mt-20 mb-20 max-w-7xl mx-auto px-4 flex">
@@ -33,30 +35,15 @@ const SectionComponent = () => {
             { breakpoint: 640, settings: { slidesToShow: 1 } },
           ]}
         >
-          <div className="px-2">
-            <CategoryCard
-              title="Generative AI"
-              image="https://images.ctfassets.net/96883mtakkm8/9Gj6y7OdRKhBmHkgJ9lWV/4589dcd6feb8009798924f70f515b731/generative-ai.png"
-            />
-          </div>
-          <div className="px-2">
-            <CategoryCard
-              title="IT Certifications"
-              image="https://images.ctfassets.net/96883mtakkm8/5Pyb4XbnD2CBt6TgiSBB8v/26f6893300dadc86519907b854b430de/certifications.png"
-            />
-          </div>
-          <div className="px-2">
-            <CategoryCard
-              title="Data Science"
-              image="https://images.ctfassets.net/96883mtakkm8/6QeCzvTvnqKN6tI18U0Wmg/cebc19b24d374ec1cab549a9c7a93020/data-science.png"
-            />
-          </div>
-          <div className="px-2">
-            <CategoryCard
-              title="Full Stack Web"
-              image="https://images.ctfassets.net/96883mtakkm8/6cHWrhYDsqfm3k3qfR6gTO/04e768400c598dfa316114282b192987/chat-gpt.png"
-            />
-          </div>
+          {courses.map((course) => (
+            <div
+              key={course.id}
+              className="px-2"
+              onClick={() => navigate(`/topic?q=${course.title}`)}
+            >
+              <CategoryCard title={course.title} image={course.image} />
+            </div>
+          ))}
         </Carousel>
 
         <div className="flex justify-center">
@@ -103,5 +90,32 @@ const CategoryCard = ({ title, image }) => (
     </div>
   </Card>
 );
+
+const courses = [
+  {
+    id: 1,
+    title: "Generative AI",
+    image:
+      "https://images.ctfassets.net/96883mtakkm8/9Gj6y7OdRKhBmHkgJ9lWV/4589dcd6feb8009798924f70f515b731/generative-ai.png",
+  },
+  {
+    id: 2,
+    title: "IT Certifications",
+    image:
+      "https://images.ctfassets.net/96883mtakkm8/5Pyb4XbnD2CBt6TgiSBB8v/26f6893300dadc86519907b854b430de/certifications.png",
+  },
+  {
+    id: 3,
+    title: "Data Science",
+    image:
+      "https://images.ctfassets.net/96883mtakkm8/6QeCzvTvnqKN6tI18U0Wmg/cebc19b24d374ec1cab549a9c7a93020/data-science.png",
+  },
+  {
+    id: 4,
+    title: "Full Stack Web",
+    image:
+      "https://images.ctfassets.net/96883mtakkm8/6cHWrhYDsqfm3k3qfR6gTO/04e768400c598dfa316114282b192987/chat-gpt.png",
+  },
+];
 
 export default SectionComponent;

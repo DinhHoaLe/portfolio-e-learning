@@ -8,6 +8,14 @@ import MainLayout from "./components/Main/MainLayout";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import ListingPage from "./pages/ListingPage/ListingPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import ExploreCareerAIPage from "./pages/ExploreCareerAI/ExploreCareerAIPage";
+import CertificationPage from "./pages/CertificationPage/CertificationPage";
+import CereerPage from "./pages/CereerPage/CereerPage";
+import CareerAllPage from "./pages/CarrerAllPage/CareerAllPage";
+import FeaturedTopics from "./pages/FeaturedTopics/FeaturedTopics";
+import { SkillsReportPage } from "./pages/SkillsReportPage/SkillsReportPage";
+import CaseStudyPage from "./pages/CaseStudyPage/CaseStudyPage";
+import TransformationStoriesPage from "./pages/TransformationStoriesPage/TransformationStoriesPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +47,44 @@ function App() {
         {
           path: "topic",
           element: <ListingPage />,
+        },
+        {
+          path: "personal-development",
+          element: <ExploreCareerAIPage />,
+        },
+        {
+          path: "certification",
+          element: <CertificationPage />,
+          children: [
+            {
+              path: ":certificationId",
+              element: <CertificationPage />,
+            },
+          ],
+        },
+        {
+          path: "career",
+          element: <CereerPage />,
+        },
+        {
+          path: "career-accelerators",
+          element: <CareerAllPage />,
+        },
+        {
+          path: "featured-topics",
+          element: <FeaturedTopics />,
+        },
+        {
+          path: "reports",
+          element: <SkillsReportPage />,
+        },
+        {
+          path: "case-study",
+          element: <CaseStudyPage />,
+        },
+        {
+          path: "stories",
+          element: <TransformationStoriesPage />,
         },
       ],
     },

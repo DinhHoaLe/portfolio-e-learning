@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Button } from "antd";
 import {
   CheckOutlined,
@@ -6,8 +6,10 @@ import {
   UserOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const BusinessSectionComponent = () => {
+  const navigate = useNavigate();
   const teamFeatures = [
     "Access to 11,000+ top courses",
     "Certification prep",
@@ -32,7 +34,6 @@ const BusinessSectionComponent = () => {
   const aiFeatures = [
     "More than 100 people Build org-wide AI fluency fast with 50 curated courses + AI Assistant to accelerate learning.",
     "More than 20 people Scale AI and technical expertise with 800+ specialized courses and 30+ role-specific learning paths in multiple languages.",
-
   ];
 
   return (
@@ -146,7 +147,11 @@ const BusinessSectionComponent = () => {
               and AI transformation, you'll find a roadmap for action in our
               popular annual report.
             </p>
-            <button size="large" className="button_primary_noFill">
+            <button
+              size="large"
+              className="button_primary_noFill"
+              onClick={() => navigate("reports")}
+            >
               Download now <RightOutlined className="text-xs" />
             </button>
           </div>

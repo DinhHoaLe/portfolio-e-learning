@@ -1,8 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { Button } from "antd";
 import { Sparkles, Trophy, MonitorPlay, Lightbulb } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CareerBannerComponent = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col md:flex-row bg-[#1c1d1f] text-white p-8 md:p-16 rounded-2xl overflow-hidden max-w-6xl mx-auto items-center gap-12">
       {/* Cột bên trái: Nội dung văn bản */}
@@ -41,6 +43,7 @@ const CareerBannerComponent = () => {
             type="default"
             size="large"
             className="h-12 px-10 font-bold rounded-sm hover:bg-gray-100"
+            onClick={() => navigate("personal-development")}
           >
             Learn more
           </Button>

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { use } from "react";
 import { RightOutlined, StarFilled } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const CerrerAcceleratorSectionComponent = () => {
-  // Dữ liệu cho các khối chứng chỉ (nền tối)
+  const navigate = useNavigate();
+
   const certs = [
     {
       title: "CompTIA",
@@ -62,7 +64,10 @@ const CerrerAcceleratorSectionComponent = () => {
               Prep for certifications with comprehensive courses, practice
               tests, and special offers on exam vouchers.
             </p>
-            <button className="flex items-center gap-2 border border-white px-6 py-3 font-bold hover:bg-white/10 transition-colors">
+            <button
+              className="flex items-center gap-2 border border-white px-6 py-3 font-bold hover:bg-white/10 transition-colors cursor-pointer"
+              onClick={() => navigate("/certification")}
+            >
               Explore certifications and vouchers{" "}
               <RightOutlined className="text-xs" />
             </button>
@@ -73,6 +78,9 @@ const CerrerAcceleratorSectionComponent = () => {
               <div
                 key={i}
                 className="bg-[#2d2f31] p-4 rounded-xl border border-gray-700 hover:border-gray-500 transition-all cursor-pointer group"
+                onClick={() =>
+                  navigate(`/certification/${encodeURIComponent(cert.title)}`)
+                }
               >
                 <img
                   src={cert.img}
@@ -104,6 +112,7 @@ const CerrerAcceleratorSectionComponent = () => {
             <div
               key={i}
               className="border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+              onClick={() => navigate(`career?=${item.title}`)}
             >
               <div
                 className={`relative h-48 flex items-end justify-center overflow-hidden `}
@@ -134,7 +143,10 @@ const CerrerAcceleratorSectionComponent = () => {
           ))}
         </div>
 
-        <button className="mt-8 text-[#5624d0] font-bold flex items-center gap-2 hover:text-[#401b9c] group">
+        <button
+          className="mt-8 text-[#5624d0] font-bold flex items-center gap-2 hover:text-[#401b9c] group"
+          onClick={() => navigate("career-accelerators")}
+        >
           <span className="underline decoration-2 underline-offset-4">
             All Career Accelerators
           </span>

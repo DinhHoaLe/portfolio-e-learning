@@ -1,6 +1,7 @@
-import React from "react";
+import React, { use } from "react";
 import { Avatar, Button } from "antd";
 import { RightOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const StudentSoriesComponent = () => {
   // Dữ liệu cho phần đối tác
@@ -108,6 +109,8 @@ const StudentSoriesComponent = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="w-full bg-white font-sans text-[#2d2f31]">
       {/* SECTION 1: Trusted Companies */}
@@ -174,7 +177,14 @@ const StudentSoriesComponent = () => {
                 )}
 
                 {/* Bottom Link */}
-                <div className="pt-4 border-t border-gray-100">
+                <div
+                  className="pt-4 border-t border-gray-100"
+                  onClick={() =>
+                    navigate(
+                      `/topic?q=${encodeURIComponent("web development")}`
+                    )
+                  }
+                >
                   <button className="text-[#5624d0] font-bold text-sm flex items-center gap-1 hover:text-[#401b9c] group">
                     <span className="underline decoration-2 underline-offset-4 group-hover:no-underline">
                       {item.linkText}
@@ -191,6 +201,7 @@ const StudentSoriesComponent = () => {
           <button
             type="link"
             className="button_text_purple"
+            onClick={() => navigate("stories")}
           >
             View all stories
             <RightOutlined style={{ fontSize: "12px" }} />
